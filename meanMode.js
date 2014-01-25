@@ -1,37 +1,43 @@
-var arr = [4, 4, 4, 6, 2];
-plus = 0;
 
-for (var i = 0; i < arr.length; i++ ) {
-plus += arr[i];
+function MeanMode(arr) { 
+  var myObj = {};
+var mode = 0;
+var highestKey;
+var sum = 0;
+
+for (var i = 0; i < arr.length; i++) {
+	myObj[arr[i]] = 0;
 }
-var avg = plus/arr.length;
 
-var compare;
-for (var j = 0; j < arr.length; j++) { 
-compare.arr[j]
+for (var j = 0; j < arr.length; j++) {
+		myObj[arr[j]]++
 }
-///////
 
-var arr = [4, 4, 4, 6, 2];
-plus = 0;
+myObj;
 
-for (var i = 0; i < arr.length; i++ ) {
-plus += arr[i];
-}
-var avg = plus/arr.length;
-
-function sortFunction(a,b) {
-return (b-a);
-}
-var sort = arr.sort(sortFunction);
-var counter = 0;
-for (var j = 0; j < sort.length; j++) {
-	if (sort[j] === sort[j - 1]) {
-		counter++
-		// console.log(sort[j])
-		console.log(counter)
+for (key in myObj) {
+	var value = myObj[key]
+	if (mode < value) {
+		mode = value;
+		highestKey = key;
 	}
-  
 }
 
-// INCOMPLETE, TO BE REDONE
+
+for (var k = 0; k < arr.length; k++) {
+	sum += arr[k];
+}
+var average = sum / arr.length;
+if (average == highestKey) {
+	return 1
+} else {
+	return 0
+}
+  // code goes here  
+ 
+         
+}
+   
+// keep this function call here 
+// to see how to enter arguments in JavaScript scroll down
+MeanMode(readline());    
