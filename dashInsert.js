@@ -18,8 +18,16 @@ for (var i = 0; i < number.length; i++) {
 	}
 
 }
-return newNumber.join("")
+newNumber.join("")
 
 
+// --------------
 
+var num = 99946;
+var number = num.toString().split("");
+var newNumber = [];
+
+for (var i = 0; i < num.length; i++) {
+	
+}
 
