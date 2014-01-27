@@ -11,3 +11,14 @@ function (num){
 	
 	return num;
 }
+
+
+var num = 12;
+var numArray = [];
+for (var i = 0; i<=num; i++) {
+	numArray.push(i);
+}
+var added = numArray.reduce(function(first,second) {
+	return first + second
+})
+return added;
