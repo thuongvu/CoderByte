@@ -14,3 +14,13 @@ num = time;
 TimeConvert(readline());                            
 
 
+// -----------2nd attempt--------------- //
+
+if (num < 60) {
+	var hours = 0
+} else {
+	var hours = Math.floor(num / 60)
+}
+var mins = num % 60;
+var time = hours + ":" + mins;
+return time
