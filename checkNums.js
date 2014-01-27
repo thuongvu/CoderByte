@@ -7,3 +7,12 @@ if (num1 < num2) {
 } else if (num1 === num2) {
 	return "-1"
 }
+
+// ------------------------- //
+if (num2 > num1) {
+	return true
+} else if (num1 > num2){
+	return false;
+} else if (num1 === num2) {
+	return "-1"
+}
