@@ -1,33 +1,18 @@
-// incomplete
 var num = 99946;
 var number = num.toString().split("");
 var newNumber = [];
 
 for (var i = 0; i < number.length; i++) {
-	if (i - 1 <= 0) {
-		newNumber.push(number[i]);
-		previousNumber = number[0]
+	if (i === 0) {
+		newNumber.push(number[i])
 	} else {
-		previousNumber = number[i-1]
-		if ((number[i] % 2 !== 0) && (previousNumber % 2 !== 0)) {
+		if ((number[i -1] % 2 !== 0) && (number[i] % 2 !==0)) {
+			newNumber.push("-")
 			newNumber.push(number[i])
-			newNumber.push('-')
-		} else if (number[i] % 2 === 0) {
+		} else {
 			newNumber.push(number[i])
 		}
 	}
-
 }
-newNumber.join("")
-
-
-// --------------
-
-var num = 99946;
-var number = num.toString().split("");
-var newNumber = [];
-
-for (var i = 0; i < num.length; i++) {
-	
-}
+return newNumber.join("")
 
