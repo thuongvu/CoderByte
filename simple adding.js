@@ -12,7 +12,8 @@ function (num){
 	return num;
 }
 
-
+// ---------------another way--------------------//
+	
 var num = 12;
 var numArray = [];
 for (var i = 0; i<=num; i++) {
@@ -22,3 +23,5 @@ var added = numArray.reduce(function(first,second) {
 	return first + second
 })
 return added;
+
+// ---------------------- //
