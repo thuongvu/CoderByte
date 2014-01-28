@@ -49,3 +49,36 @@ if (counterO != counterX) {
 ExOh(readline());  
 
 // PASSES ALL TESTS     
+
+
+
+
+// ------ third attempt
+
+var str = "xooxxo";
+var xCount = 0;
+var oCount = 0;
+
+for (var i = 0; i < str.length; i++) {
+	if (str[i] === "x") {
+		xCount++
+	} else if (str[i] === "o") {
+		oCount++
+	}
+}
+if (xCount === oCount) {
+	return true;
+} else {
+	return false;
+}
+
+
+
+
+
+
+
+
+
+
+

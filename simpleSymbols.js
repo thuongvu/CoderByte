@@ -14,10 +14,3 @@ if (trueFalse > 0) {
 } else {
 	return true;
 }
-
-// --------------------- //
-var str = "+d+=3=+s+";
-var correct = true;
-for (var i = 0; i < str.length; i++) {
-	
-}

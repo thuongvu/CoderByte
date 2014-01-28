@@ -40,4 +40,66 @@ if (average == highestKey) {
    
 // keep this function call here 
 // to see how to enter arguments in JavaScript scroll down
-MeanMode(readline());    
+MeanMode(readline());  
+
+
+
+// ------------- attempt 2 ---------------- //
+var arr =  [1,1,1];
+var added = arr.reduce(function(previousValue, currentValue) {
+	return previousValue + currentValue
+})
+var mean = added / arr.length;
+var highestOccured = 0;
+var mode;
+var numObj = {};
+
+for (var i = 0; i < arr.length; i++) {
+	if (numObj[arr[i]] == null) {
+		numObj[arr[i]] = 1;
+	} else {
+		numObj[arr[i]]++;
+		if (numObj[arr[i]] > highestOccured) {
+			mode = arr[i]  
+		}
+	}
+}
+if (mean === mode) {
+	// console.log(1)
+	return 1
+} else {
+	return 0
+	// console.log(0)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

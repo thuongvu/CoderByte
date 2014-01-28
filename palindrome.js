@@ -21,3 +21,25 @@ if (reversed === forward) {
 //1. When the input was "rotor plus three" your output was incorrect.
 //2. When the input was "radars" your output was incorrect.
 //3. When the input was "abcdef" your output was incorrect.
+
+
+
+
+// ------------ attempt 2 ------------------------//
+
+var str = "never odd or even";
+var split = str.split("")
+var newStr = []
+var newStrRev = []
+for (var i = 0; i < split.length; i++) {
+	if (!(split[i] === ' ')) {
+		newStr.push(split[i])
+		newStrRev.push(split[i])
+	}
+}
+if (newStr.join("") === newStrRev.reverse().join("")) {
+	return true;
+} else {
+	return false;
+}
+// all test results true, YAY

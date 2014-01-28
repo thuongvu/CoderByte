@@ -16,3 +16,21 @@ for (var i = 0; i < number.length; i++) {
 }
 return newNumber.join("")
 
+
+// 2nd attempt
+var num = 454793;
+var numberStr = num.toString().split("")
+var newNum = [];
+for (var i = 0; i < numberStr.length; i++) {
+	if (i === 0) {
+		newNum.push(numberStr[0])
+	} else {
+		if ((numberStr[i - 1] % 2 !==0) && (numberStr[i] % 2 !==0)) {
+			newNum.push('-')
+			newNum.push(numberStr[i])
+		} else {
+			newNum.push(numberStr[i])
+		}
+	}
+}
+return newNum.join("");

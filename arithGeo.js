@@ -32,4 +32,43 @@ else if ((isGeo === 0) && (isArith === 0)) {
 	// console.log("-1")
 }
 
+// ----------- 2nd attempt ----------------------
+var arr = [2, 6, 18];
+var arith = true;
+var geo = true;
+
+var arithDiff;
+var geoQuo;
+var lastNumber;
+
+for (var i = 0; i< arr.length; i++) {
+	if (i === 0) {
+		arithDiff = arr[1] - arr[0];
+		geoQuo = arr[1] / arr[0]
+	} else {
+		lastNumber = arr[i-1]
+		if (!(arithDiff === (arr[i] - lastNumber))) {
+			arith = false;
+		}
+		if (!(geoQuo === (arr[i] / lastNumber))) {
+			geo = false;
+		}
+	}
+}
+if (geoQuo === true) {
+	return "Geometric" 
+} else if (arith === true) {
+	return "Arithmetic"
+} else if ((arith === false) && (geo === false))
+	return "-1"
+
+// incorrect test cases
+// 1. When the input was (2,6,18,54) your output was incorrect.
+// 2. When the input was (100,200,400,800,1600) your output was incorrect.
+// 3. When the input was (5,10,20,40,80) your output was incorrect.
+
+
+
+
+
 
