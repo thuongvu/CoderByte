@@ -34,3 +34,64 @@ for (var i = 0; i < numberStr.length; i++) {
 	}
 }
 return newNum.join("");
+
+// =====================================================================================================================
+																// FUNCTIONAL - !!!!!COMPLETED!!!!
+																// YAYAYAYAY
+																// YAYAYA
+// =====================================================================================================================
+
+// iterate over array
+// check if both and last numbers are odd
+// map function to return new array
+
+// iterate over array
+// check if number & previous are odd
+// if numbers are odd or not, MAP NEW ARRAY by x
+// return new array
+
+function forEach(array, action) {
+	for (var i = 0; i < array.length; i++) {
+		action(array[i], array[i - 1])
+	}
+}
+
+function checkOdd(number) {
+	if (number) {
+		if (number % 2 !==0) {
+			return true;
+		}  else {
+			return false;
+		}
+	}
+}
+
+function insertNumOrDash(number, previousNum, newArray) {
+	if (checkOdd(number) === false) {
+		newArray.push(number);
+	} else if ((checkOdd(number) === true) && (checkOdd(previousNum) === true)) {
+		newArray.push("-");
+		newArray.push(number);
+	} else {
+		newArray.push(number);
+	}
+}
+
+function numToArray(numbers) {
+	return numbers.toString().split("");
+}
+
+function checkAndInsert(arr) {
+	var newArray = [];
+	forEach(arr, function(element, previousEle) {
+		insertNumOrDash(element, previousEle, newArray)
+	})
+	return newArray;
+}
+
+function start(numbers) {
+	var arr = numToArray(numbers)
+	return checkAndInsert(arr).join("");
+}
+
+start(99946)
