@@ -112,6 +112,7 @@ function countXorO(ele, resultsObj) {
 
 function compare(resultsObj) {
 	if (resultsObj.x === resultsObj.o) {
+		console.log(resultsObj) // to see the obj
 		return true;
 	}  else {
 		console.log(resultsObj) // to see the obj
