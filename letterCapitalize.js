@@ -31,3 +31,51 @@ for (var i = 0; i < words.length; i++) {
 	words[i] = word.join("")
 }
 return words;
+
+// ===================== functional ======================================
+// split string into array of words
+// choose the letter
+// letter to toUpperCase
+// splice the letter, return words
+
+function forEach(array, func) {
+	for (var i = 0; i < array.length; i++) {
+		func(array[i], i)
+	}
+}
+
+function reduce(combine, array) {
+	forEach(array, function(ele, i) {
+		var currentWordArr = array[i].split("");
+		var upperLetter = combine(ele)
+		var splicedWord = currentWordArr.splice(0,1, upperLetter)
+		array.splice(i, 1, currentWordArr.join(""))
+	})
+	return array;
+}
+
+function splitString(str) {
+	return str.split(" ");
+}
+
+function upperCase(word) {
+	return word[0].toUpperCase();
+}
+
+function firstLetterCap(str) {
+	var stringArr = splitString(str);
+	return reduce(upperCase, stringArr)
+}
+
+firstLetterCap("hello there whats happening")
+
+
+
+
+
+
+
+
+
+
+
