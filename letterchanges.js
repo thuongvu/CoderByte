@@ -28,4 +28,26 @@ for (var k = 0; k < newStr.length; k++) {
 return newStr.join("");
 
 
+// 2nd attempt
+
+var str = "hello*3";
+var splitStr = str.split("");
+var alphabet = 'abcdefghijklmnopqrstuvwxyz';
+var re = /\w/g;
+var reLetSym = /[\W?\d?]/g;
+var newStr = [];
+
+for (var i = 0; i < splitStr.length; i++) {
+	if (splitStr[i].match(re)) {
+		for (var j = 0; j < alphabet.length; j++) {
+			if (alphabet[j] === splitStr[i]) {
+				newStr.push(alphabet[j])
+			}
+		}
+	} 
+	if (splitStr[i].match(reLetSym)) {
+		newStr.push(splitStr[i])
+	}
+}
+newStr
 
