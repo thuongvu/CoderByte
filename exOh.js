@@ -73,11 +73,58 @@ if (xCount === oCount) {
 }
 
 
+// =====================================================================================================================
+																// FUNCTIONAL
+// =====================================================================================================================
+
+// iterate over array
+// // reduce, combine, base, array.  takes an array, combines it, gives us a single result, returns it
 
 
+function forEach(array, action, countArr) {
+	for (var i = 0; i < array.length; i++) {
+		action(array[i], countArr)
+	}
+}
 
+function reduce(func, array) {
+	var resultsObj = {};
+	forEach(array, function(ele) {
+		func(ele, resultsObj)
+	})
+	return resultsObj;
+}
 
+function countXorO(ele, resultsObj) {
+	if (resultsObj['x'] == null) {
+		resultsObj['x'] = 0;
+	} else if (resultsObj['o'] == null) {
+		resultsObj['o'] = 0;
+	}
 
+	if (ele === 'x') {
+		resultsObj['x']+=1;
+	}  else if (ele === 'o') {
+		resultsObj['o']+=1;
+	}
+	return resultsObj;
+}
+
+function compare(resultsObj) {
+	if (resultsObj.x === resultsObj.o) {
+		return true;
+	}  else {
+		console.log(resultsObj) // to see the obj
+		return false;
+	}
+}
+
+function start(str) {
+	var arr = str.split("")
+	return compare(reduce(countXorO, arr));
+}
+
+start("xooxxo")
 
 
 

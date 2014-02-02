@@ -49,7 +49,6 @@ return newNum.join("");
 // check if number & previous are odd
 // if numbers are odd or not, MAP NEW ARRAY by x
 // return new array
-
 function forEach(array, action) {
 	for (var i = 0; i < array.length; i++) {
 		action(array[i], array[i - 1])
