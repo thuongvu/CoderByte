@@ -32,7 +32,7 @@ for (var i = 0; i < words.length; i++) {
 }
 return words;
 
-// ===================== functional ======================================
+// ============================================= functional =======================================================
 // split string into array of words
 // choose the letter
 // letter to toUpperCase

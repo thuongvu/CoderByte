@@ -71,6 +71,9 @@ if (hitsChamp === 0) {
 // 4. When the input was "red none yellow" your output was incorrect.
 
 
+
+
+
 // ============= FUNCTIONAL ======================================================================================
 function forEach(array, func) {
 	for (var i = 0; i < array.length; i++) {
