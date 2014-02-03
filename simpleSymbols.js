@@ -14,3 +14,32 @@ if (trueFalse > 0) {
 } else {
 	return true;
 }
+
+// ================ FUNCTIONAL ============================================================================
+function forEach(array, func) {
+	for (var i = 0; i < array.length; i++) {
+		func(array[i], array[i - 1], array[i + 1])
+	}
+}
+
+function strMatch(str) {
+	return str.match(/[a-zA-Z]/g)
+}
+
+function map(mapFunc, array) {
+	var condition = true;
+	forEach(array, function(ele, previous, after) {
+		if (mapFunc(ele)) {
+			if (!((previous === "+") && (after === "+"))) {
+				condition = false;
+			}
+		}
+	})	
+	return condition;
+}
+
+function start(array) {
+	return map(strMatch, array);
+}
+
+start("+d+=3=+s")
