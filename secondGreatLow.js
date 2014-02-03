@@ -39,3 +39,27 @@ if (arr.length > 2) {
 // 1. When the input was (2,2,2,5,5,5,6) your output was incorrect.
 // 2. When the input was (90, 23) your output was incorrect.
 // 3. When the input was (7, 7, 90, 1000003) your output was incorrect.
+
+
+
+
+// =========== FUNCTIONAL ====================================================================
+function sort(array) {
+	array.sort(function(a,b) {
+		return a - b
+	})
+	return array;
+}
+
+function pluck(array, number) {
+	return array[number];
+}
+
+function findNumInArray(array, number, numMinusLength) {
+	var sorted = sort(array);
+	var firstNum = pluck(sorted, number);
+	var secondNum = pluck(sorted, sorted.length - numMinusLength)
+	return firstNum.toString() + " " + secondNum.toString();
+}
+
+findNumInArray([7, 7], 1, 2)
