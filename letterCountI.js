@@ -72,7 +72,6 @@ if (hitsChamp === 0) {
 
 
 // ============= FUNCTIONAL ======================================================================================
-// doesnt work for all edge cases yet, but mostly done
 function forEach(array, func) {
 	for (var i = 0; i < array.length; i++) {
 		func(array[i])
@@ -113,7 +112,11 @@ function checkLettersObj(obj) {
 			}
 		}
 	}
-	return highestWord;
+	if (highestNumber === 1) {
+		return -1
+	} else {
+		return highestWord;
+	}
 }
 
 function start(str) {
