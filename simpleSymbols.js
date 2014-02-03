@@ -26,11 +26,16 @@ function strMatch(str) {
 	return str.match(/[a-zA-Z]/g)
 }
 
-function map(mapFunc, array) {
-	var condition = true;
+function checkPlusSigns(ele, previous, after) {
+	if (!((previous === "+") && (after === "+"))) {
+		return false;
+	}
+}
+
+function map(mapFunc, secondFunc, array, condition) {
 	forEach(array, function(ele, previous, after) {
 		if (mapFunc(ele)) {
-			if (!((previous === "+") && (after === "+"))) {
+			if (secondFunc(ele, previous, after) === false) {
 				condition = false;
 			}
 		}
@@ -39,7 +44,7 @@ function map(mapFunc, array) {
 }
 
 function start(array) {
-	return map(strMatch, array);
+	return map(strMatch, checkPlusSigns, array, true);
 }
 
-start("+d+=3=+s")
+start("+d+=3=+s+")
