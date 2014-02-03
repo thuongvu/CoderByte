@@ -22,6 +22,7 @@ for (var j = 0; j < split.length; j++) {
 		}
 	}
 }
+// console.log(highestWord)
 return highestWord;
 
 
@@ -70,8 +71,55 @@ if (hitsChamp === 0) {
 // 4. When the input was "red none yellow" your output was incorrect.
 
 
+// ============= FUNCTIONAL ======================================================================================
+// doesnt work for all edge cases yet, but mostly done
+function forEach(array, func) {
+	for (var i = 0; i < array.length; i++) {
+		func(array[i])
+	}
+}
 
+function reduce(combine, array) {
+	var letterObj = {};
+	forEach(array, function(ele) {
+		combine(ele, letterObj)
+	})
+	return letterObj;
+}
 
+function countLetters(ele, letterObj) {
+	var splitWord = ele.split("");
+	forEach(splitWord, function (letter) {
+		if (letter.match(/[a-zA-Z]/)) {
+			if (letterObj[ele] == null) {
+				letterObj[ele] = {};
+			}
+			if (letterObj[ele][letter] == null) {
+				letterObj[ele][letter] = 0;
+			}
+			letterObj[ele][letter] ++
+		}
+	})
+}
+
+function checkLettersObj(obj) {
+	var highestNumber = 0;
+	var highestWord;
+	for (prop in obj) {
+		for (p in obj[prop]) {
+			if (obj[prop][p] > highestNumber) {
+				highestNumber = obj[prop][p]
+				highestWord = prop
+			}
+		}
+	}
+	return highestWord;
+}
+
+function start(str) {
+	return checkLettersObj(reduce(countLetters, str.split(" ")))
+}
+start("hello appple pie") // returns "appple"
 
 
 

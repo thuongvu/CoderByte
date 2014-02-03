@@ -9,7 +9,7 @@ var reduced = numArray.reduce(function(previousValue, currentValue) {
 return reduced;
 
 
-// ============================
+// ============================ FUNCTIONAL =======================================
 // iterate over array
 // add things into array that are less numbers, UNTIL 0
 // reduce
