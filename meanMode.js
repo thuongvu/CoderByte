@@ -74,9 +74,75 @@ if (mean === mode) {
 
 
 
+// =================== FUNCTIONAL ================================================================
+// mean
+// reduce. add them all up and divide by array.length
+// mode
+//
 
+function forEach(array, func) {
+	for (var i = 0; i < array.length; i++) {
+		func(array[i])
+	}
+}
 
+function reduce(combine, array, base) {
+	forEach(array, function(ele) {
+		base = combine(base, ele)
+	})
+	return base;
+}
 
+function add(a,b) {
+	return a + b;
+}
+
+function divide(a,b) {
+	return a / b;
+}
+
+function getMean(array) {
+	return divide(reduce(add, array, 0), array.length);
+}
+
+function map(mapFunc, array) {
+	var freq = {};
+	forEach(array, function(ele) {
+		mapFunc(ele, freq)
+	})
+	return freq;
+}
+
+function getFrequency(ele, freq) {
+	if (freq[ele] == null) {
+		freq[ele] = 1
+	} else {
+		freq[ele]++
+	}
+}
+
+function getMode(array) {
+	var modeList = map(getFrequency, array);
+	var highestFreq = 0;
+	var mode;
+	for (prop in modeList) {
+		if (modeList[prop] > highestFreq) {
+			highestFreq = modeList[prop]
+			mode = prop;
+		}
+	}
+	return mode;
+}
+
+function compareMeanMode(array) {
+	if (getMode(array) == getMean(array)) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+compareMeanMode([1,1,1])
 
 
 
