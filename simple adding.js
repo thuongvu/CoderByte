@@ -24,4 +24,36 @@ var added = numArray.reduce(function(first,second) {
 })
 return added;
 
-// ---------------------- //
+
+// ----- FUNCTIONAL ----------------- //
+function forEach(array, func) {
+	for (var i = 0; i < array.length; i++) {
+		func(array[i])
+	}
+}
+
+function createArray(number) {
+	var arr = [];
+	for (var i = 0; i <= number; i++) {
+		arr.push(i)
+	}
+	return arr;
+}
+
+function reduce(combine, array, base) {
+	forEach(array, function(ele) {
+		base = combine(ele, base);
+	})
+	return base;
+}
+
+function add(a,b) {
+	return a + b;
+}
+
+function addUpTo(number) {
+	return reduce(add, createArray(number), 0)
+}
+
+addUpTo(3)
+
