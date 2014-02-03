@@ -43,3 +43,50 @@ if (newStr.join("") === newStrRev.reverse().join("")) {
 	return false;
 }
 // all test results true, YAY
+
+
+// FUNCTIONAL ========================================================================================
+
+function splitStr(str) {
+	return str.split("")
+}
+
+function checkStr(str) {
+	return str.match(/[a-zA-Z]/);
+}
+
+function map(mapFunc, array) {
+	var newStr = []
+	forEach(array, function(ele) {
+		if (mapFunc(ele)) {
+			newStr.push(mapFunc(ele)[0])
+		}
+	})
+	return newStr;
+}
+
+function reverseArray(array) {
+	return array.reverse();
+}
+
+function compareFwdRvs(str) {
+	if (map(checkStr, splitStr(str)).join("") === reverseArray(map(checkStr, splitStr(str))).join("")) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+start("never odd or even")
+
+
+
+
+
+
+
+
+
+
+
+
