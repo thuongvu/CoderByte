@@ -29,4 +29,55 @@ for (var i = 0; i < splitStr.length; i++) {
 		splitStr.splice(i,1, splitStr[i].toLowerCase())
 	}
 }
-return splitStr.join("");
+// return splitStr.join("");
+console.log(splitStr.join(""))
+
+
+
+// ==================== FUNCTIONAL =======================================
+
+function forEach(func, array) {
+	for (var i = 0; i < array.length; i++) {
+		func(array[i])
+	}
+}
+
+function matchStr(str) {
+	if (str.match(/[a-z]/)) {
+		return str.replace(/[a-z]/g, str.toUpperCase());
+	} else if (str.match(/[A-Z]/g)) {
+		return str.replace(/[A-Z]/g, str.toLowerCase());
+	} else {
+		return str;
+	}
+}
+
+function log(str) {
+	return str;
+}
+
+function mapp(mapFunc, array) {
+	var newArray = [];
+	forEach(array, function(ele) {
+		mapFunc(ele)
+		// newArray.push(mapFunc(ele));
+	})
+	return newArray;
+}
+
+function splitStr(str) {
+	return str.split("")
+}
+
+function swapCase(str) {
+	// var input = splitStr(str)
+	// console.log(input)
+	mapp(log, str);
+}
+
+// swapCase(["H","e"])
+mapp(log, ["H","e"]);
+
+
+
+
