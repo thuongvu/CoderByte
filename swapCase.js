@@ -36,7 +36,7 @@ console.log(splitStr.join(""))
 
 // ==================== FUNCTIONAL =======================================
 
-function forEach(func, array) {
+function forEach(array, func) {
 	for (var i = 0; i < array.length; i++) {
 		func(array[i])
 	}
@@ -52,15 +52,10 @@ function matchStr(str) {
 	}
 }
 
-function log(str) {
-	return str;
-}
-
-function mapp(mapFunc, array) {
+function map(mapFunc, array) {
 	var newArray = [];
 	forEach(array, function(ele) {
-		mapFunc(ele)
-		// newArray.push(mapFunc(ele));
+		newArray.push(mapFunc(ele))
 	})
 	return newArray;
 }
@@ -70,13 +65,10 @@ function splitStr(str) {
 }
 
 function swapCase(str) {
-	// var input = splitStr(str)
-	// console.log(input)
-	mapp(log, str);
+	return map(matchStr, splitStr(str)).join("");
 }
 
-// swapCase(["H","e"])
-mapp(log, ["H","e"]);
+swapCase("Hello! World123")
 
 
 
