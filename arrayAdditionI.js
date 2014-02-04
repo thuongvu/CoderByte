@@ -95,7 +95,7 @@ function reduce(combine, arr, base, check, combineAgain, highestNumber) {
 	forEach(arr, function(ele) {
 		base = combine(ele, base)
 		if (check(base, highestNumber) == false) {
-			base = combineAgain(ele, base, highestNum)
+			base = combineAgain(ele, base, highestNumber)
 			if (base == true) {
 				possible = true;
 			}
@@ -105,7 +105,7 @@ function reduce(combine, arr, base, check, combineAgain, highestNumber) {
 }
 
 function start(numbers) {
-	return reduce(add, numbers, 0, checkIfHighest, subtract, pophighest(numbers))
+	return reduce(add, numbers, 0, checkIfHighest, subtract, popHighest(numbers))
 }
 
 start([4, 6, 23, 10, 1, 3])
