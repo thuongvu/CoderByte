@@ -64,61 +64,50 @@ return possible;
 // reduce function. add/subtract/etc
 // check
 
-// function popHighest(arr) {
-// 	return arr.pop()
-// }
+function popHighest(arr) {
+	return arr.pop()
+}
 
-// function forEach(arr, action) {
-// 	for (var i = 0; i < arr.length; i++) {
-// 		action(arr[i])
-// 	}
-// }
+function forEach(arr, action) {
+	for (var i = 0; i < arr.length; i++) {
+		action(arr[i])
+	}
+}
 
-// function add(a,b) {
-// 	console.log(a + b)
-// 	return parseInt(a) + parseInt(b);
-// }
+function add(a,b) {
+	return parseInt(a) + parseInt(b);
+}
 
-// function subtract(a,b) {
-// 	return parseInt(a) - parseInt(b);
-// }
+function subtract(a,b) {
+	return parseInt(a) - parseInt(b);
+}
 
-// function addSubtract(combine, check, arr, base, highest) {
-// 	forEach(arr, function(ele) {
-// 		base = ele; // base = current element iteration we are on
-// 		forEach(arr, function(ele) { // another foreach
-// 			if (ele !== base) { // if ele in here === base, then no go.
-// 				combine(ele, base) // combined everything
-// 				if (check(base, highest) === false)// check it {
-// 					forEach(arr, function(ele) {
-// 						if (ele !==base) {
-// 							combine(ele, base)
-// 						}
-// 					})
-// 				}
-// 			}
-// 		})
-// 	})
-// }
+function checkIfHighest(number, highestNumber) {
+	if (number === highestNumber) {
+		return true;
+	} else {
+		return false;
+	}
+}
 
-// function checkIfPossible(number, highest) {
-// 	var possible = false;
-// 	if (number === highest) {
-// 		possible = true;
-// 		console.log("possible is true")
-// 	}
-// 	return possible;
-// }
+function reduce(combine, arr, base, check, combineAgain, highestNumber) {
+	var possible = false;
+	forEach(arr, function(ele) {
+		base = combine(ele, base)
+		if (check(base, highestNumber) == false) {
+			base = combineAgain(ele, base, highestNum)
+			if (base == true) {
+				possible = true;
+			}
+		}
+	})
+	return possible;
+}
 
-// function workTogether(arr) {
-// 	var sorted = arr.sort(function(a,b) {
-// 		return a - b;
-// 	});
-// 	var highest = popHighest(sorted);
-// 	if (addSubtract(add, checkIfPossible, arr, 0, highest) === false) {
-// 		return addSubtract(subtract, checkIfPossible, arr, 0, highest)
-// 	}
-// }
-// workTogether([4, 6, 23, 10, 1, 3])
+function start(numbers) {
+	return reduce(add, numbers, 0, checkIfHighest, subtract, pophighest(numbers))
+}
+
+start([4, 6, 23, 10, 1, 3])
 
 
