@@ -15,3 +15,20 @@ function WordCount(str) {
 	var words = str.match(re)
 	return words.length;
 }
+
+
+// ========== FUNCTIONAL ==========================================================================
+
+function splitStr(str) {
+	return str.split(" ");
+}
+
+function countEleIn(array) {
+	return array.length;
+}
+
+function countWords(str) {
+	return countEleIn(splitStr(str));
+}
+
+countWords("Hello there what's up")
