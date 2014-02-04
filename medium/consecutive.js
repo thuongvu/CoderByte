@@ -18,3 +18,30 @@ function Consecutive(arr) {
 
 // Consecutive([-2,10,4])
 Consecutive([5,10,15])
+
+// ================= FUNCTIONAL ===================================
+function forEach(array, func) {
+	for (var i = 0; i < array.length; i++) {
+		func(array[i], array[i+1])
+	}
+}
+
+function map(mapFunc, array) {
+	var newNums = 0;
+	forEach(array, function(ele, next) {
+		if (mapFunc(ele, next)) {
+			newNums += mapFunc(ele, next);
+		}
+	})
+	return newNums;
+}
+
+function newNums(ele, next) {
+	return next - ele;
+} 
+
+function consecutive(array) {
+	return map(newNums, array);
+}
+
+consecutive([5,10,15])
