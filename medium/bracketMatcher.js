@@ -20,3 +20,5 @@ function BracketMatcher(str) {
 BracketMatcher("(c(oder)) b(yte)")
 
 // 1. When the input was "the color re(d))()(()" your output was incorrect.
+
+// what if when we got (, count up, and ), count down
