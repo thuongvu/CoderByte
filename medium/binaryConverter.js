@@ -1,18 +1,14 @@
 function BinaryConverter(str) { 
 	var reversed = str.toString().split("").reverse("")
-	console.log(reversed)
 	var newNumArr = [];
-	var power = [];
+	var power = [1];
+   for (var j = 1; j <= reversed.length; j++) {
+      power.push(2)
+   } 
    for (var i = 0; i < reversed.length; i++) {
-
-   	for (var j = 0; j <= i; j++) {
-   		power.push(2)
-   	} 
-   	var times = power.reduce(function(a,b) {
+   	var times = power.slice(0,i + 1).reduce(function(a,b) {
    		return parseInt(a) * parseInt(b);
    	})
-   	console.log(times)
-   	console.log(reversed[i])
 
    	newNumArr.push(reversed[i] * times)
 
@@ -23,4 +19,4 @@ function BinaryConverter(str) {
    return number;
 }
 
-BinaryConverter(1000)
+BinaryConverter(100101)
