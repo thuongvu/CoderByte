@@ -45,3 +45,69 @@ if (rounded.length > 3) {
  	// console.log(rounded.join(""))
  	return rounded.join("")
  }
+
+
+
+
+ // --- attempt 3--------- //
+function DivisionStringfied(num1, num2) {
+	var quotient = Math.round(num1 / num2)
+	var qSplit = quotient.toString().split("");
+	var counter = 0;
+	if (qSplit.length > 3) {
+		for (var i = 0; i < qSplit.length; i++) {
+			counter++
+			if (counter === 3) {
+				counter = 0;
+				qSplit.splice(i -1, 0, ',')
+			}
+		}
+	}
+	return qSplit.join("")
+}
+
+DivisionStringfied(9999, 3)
+
+
+// functional
+
+function splitNumToArr (num) {
+	return num.toString().split("");
+}
+
+function forEach(array, func) {
+	for (var i = 0; i < array.length; i++) {
+		func(array[i], i);
+	}
+}
+
+function filter(array, filterFunc) {
+	var counter = 0;
+	if (array.length > 3) {
+		forEach(array, function(ele, i) {
+			counter = filterFunc(ele, i, array, counter);
+		})
+	}
+	return array.join("");
+}
+
+function check(ele, i, array, counter) {
+	counter++;
+	if (counter === 3) {
+		counter = 0;
+		array.splice(i - 1, 0, ",")
+	}
+	return counter;
+}
+
+function divide(a,b) {
+	return a / b;
+}
+
+function start(num1, num2){
+	var q = Math.round(divide(num1,num2));
+	var qArr = splitNumToArr(q);
+	return filter(qArr, check)
+}
+
+start(9999, 3)
