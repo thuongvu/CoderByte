@@ -72,9 +72,69 @@ firstLetterCap("hello there whats happening")
 
 
 
+// 3rd attempt 
 
 
+function LetterCapitalize(str) {
+	var re = /\b[a-zA-Z]/g;
+	return str.replace(re, function(firstLetter) {
+		return firstLetter.toUpperCase();
+	})
+}
 
+
+LetterCapitalize("hello there whats happening")
+
+
+// 4th attempt splices
+
+function LetterCapitalize(str) {
+	var words = str.split(" ");
+
+	for (var i = 0; i < words.length; i++) {
+		var word = words[i].split("");
+		var capFirstLetter = word[0].toUpperCase();
+		word.splice(0, 1, capFirstLetter);
+		words.splice(i, 1, word.join(""))
+	}
+	return words.join(" ")
+}
+
+LetterCapitalize("hello there whats happening")
+
+
+// functional
+
+function forEach(array, func) {
+	for (var i = 0; i < array.length; i++) {
+		func(array[i], i);
+	}
+}
+
+function splitWords(str) {
+	return str.split(" ");
+}
+
+function map(array, mapFunc) {
+	forEach(array, function(word, i) {
+		mapFunc(word, i, array);
+	})
+	return array;
+}
+
+function spliceUpper(word, i, array) {
+	var letters = word.split("");
+	var firstLetUp = letters[0].toUpperCase();
+	letters.splice(0, 1, firstLetUp);
+	array.splice(i, 1, letters.join(""))
+	return array;
+}
+
+function LetterCapitalize(str) {
+	return map(splitWords(str), spliceUpper).join(" ")
+}
+
+LetterCapitalize("hello there whats happening")
 
 
 
