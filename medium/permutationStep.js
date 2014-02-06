@@ -1,20 +1,19 @@
 
 
 function PermutationStep(num) { 
-
+	var permArr = [];
+	var usedChars = [];
+	var newArray = [];
+	
 	var str = num.toString().split("");
 	var numStr = [];
 	for (var j = 0; j < str.length; j++) {
 		numStr.push(parseInt(str[j]));
 	}
 
+	inner(numStr, num)	
 
-	inner(numStr, num)
-
-	var permArr = [];
-	var usedChars = [];
-
-	function inner(num,check) {
+	function inner(num, check) {
 		var ch;
 		for (var i = 0; i < num.length; i++) {
 			ch = num.splice(i, 1)[0];
@@ -22,11 +21,11 @@ function PermutationStep(num) {
 			if (num.length === 0) {
 				permArr.push(usedChars.slice())
 			}
-			inner(num);
+			PermutationStep(num);
 			num.splice(i,0,ch);
 			usedChars.pop();
 		}
-		var newArray = [];
+		
 		for (var k = 0; k < permArr.length; k++) {
 			num = '';
 			for (var l = 0; l < permArr[k].length; l++) {
@@ -42,11 +41,13 @@ function PermutationStep(num) {
 			return newArray[newArray.indexOf(check) + 1]
 		}
 	}
+
+
+	
 	
 
+	// return newArray
 }
-
-PermutationStep(123)
 
 // function numToArray(num) {
 // 	var str = num.toString().split("");
@@ -62,4 +63,4 @@ PermutationStep(123)
 // 	return PermutationStep(number, num);
 // }
 
-// start(123)
+start(123)
