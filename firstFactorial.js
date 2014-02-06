@@ -44,3 +44,56 @@ function multiplyFactorials(number) {
 }
 
 multiplyFactorials(3)
+
+
+// 2nd attempt
+function MultiplyFactorials(num) {
+	var numArr = [];
+	for (var i = 1; i <= num; i++) {
+		numArr.push(i);
+	}
+	var base = 1;
+	reduce(numArr);
+	function reduce(arr) {
+		for (var i = 0; i < arr.length; i++) {
+			base = arr[i] * base;
+		}
+	}
+	return base;
+}
+
+MultiplyFactorials(4)
+
+// 2nd functional
+
+
+function forEach(array, func) {
+	for (var i = 0; i < array.length; i++) {
+		func(array[i]);
+	}
+}
+
+function genNumArr(num) {
+	var numArr = [];
+	for (var i = 1; i <= num; i++) {
+		numArr.push(i);
+	}
+	return numArr;
+}
+
+function multiply(a,b) {
+	return a * b;
+}
+
+function reduce(array, combine, base) {
+	forEach(array, function(num) {
+		base = combine(parseInt(num), parseInt(base));
+	})
+	return base;
+}
+
+function MultiplyFactorials(num) {
+	return reduce(genNumArr(num), multiply, 1);
+}
+
+MultiplyFactorials(4)
