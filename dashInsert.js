@@ -35,6 +35,55 @@ for (var i = 0; i < numberStr.length; i++) {
 }
 return newNum.join("");
 
+
+// functional x 2
+// loop over array
+// map function
+// check.. if x, then do y
+function forEach(array, func) {
+	for (var i = 1; i < array.length; i++) {
+		func(array[i], array[i - 1]);
+	}
+}
+
+function map(mapFunc, array) {
+	var newArray = [];
+	forEach(array, function(ele, previous) {
+		mapFunc(ele, previous, newArray);
+	})
+	return newArray.join("");
+}
+
+function check(ele, previous, newArray) {
+	if ((ele % 2 !== 0) && (previous % 2 !== 0)) {
+		newArray.push(ele);
+		newArray.push("-");
+	} else {
+		newArray.push(ele);
+	}
+}
+
+function splitNumToArr(num) {
+	return num.split("");
+}
+
+function start(num) {
+	var numArr = splitNumToArr(num.toString());
+	return map(check, numArr)
+}
+
+start(99946)
+
+
+
+
+
+
+
+
+
+
+
 // =====================================================================================================================
 																// FUNCTIONAL - !!!!!COMPLETED!!!!
 																// YAYAYAYAY
