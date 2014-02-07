@@ -57,3 +57,51 @@ function addUpTo(number) {
 
 addUpTo(3)
 
+
+
+// attempt 3
+function simpleAdding(num) {
+	var numArr = [];
+	for (var i = 1; i <= num; i++) {
+		numArr.push(i);
+	}	
+	var sum = 0;
+	for (var j = 0; j < numArr.length; j++) {
+		sum = parseInt(numArr[j]) + parseInt(sum);
+	}
+	return sum;
+}
+
+simpleAdding(5)
+
+// functional
+
+function forEach(array, func) {
+	for (var i = 0; i < array.length; i++) {
+		func(array[i]);
+	}
+}
+
+function makeNumArr(num) {
+	var numArr = [];
+	for (var i = 1; i <= num; i++) {
+		numArr.push(i);
+	}
+	return numArr;
+}
+
+function reduce(array, combine, base) {
+	forEach(array, function(ele) {
+		base = combine(base, ele);
+	})
+	return base;
+}
+
+function add(a,b) {
+	return parseInt(a) + parseInt(b);
+}
+
+function simpleAdding(num) {
+	return reduce(makeNumArr(num), add, 0)
+}
+simpleAdding(5)
