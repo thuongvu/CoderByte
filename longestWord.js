@@ -54,3 +54,54 @@ function start(str) {
 start("hellll3loooo what3supppp32")
 
 
+
+// attempt 2
+
+function longestWord(str) {
+	var words = str.split(" ");
+	var amountOfLetters = 0;
+	var longestWord;
+	for (var i = 0; i < words.length; i++) {
+		if (words[i].length > amountOfLetters) {
+			amountOfLetters = words[i].length;
+			longestWord = words[i]
+		}
+	}
+	return longestWord;
+}
+
+longestWord("hellloooo there")
+
+// functional
+
+function forEach(array, func) {
+	for (var i = 0; i < array.length; i++) {
+		func(array[i]);
+	}
+}
+
+function map(array, mapFunc) {
+	var longestWord;
+	var highestNumLetters = 0;
+	forEach(array, function(word) {
+		if (mapFunc(word) > highestNumLetters) {
+			highestNumLetters = mapFunc(word);
+			longestWord = word;
+		}
+	})
+	return longestWord;
+}
+
+function countLettersOf(word) {
+	return word.length;
+}
+
+function splitStrToArr(str) {
+	return str.split(" ");
+}
+
+function longestWord(str) {
+	return map(splitStrToArr(str), countLettersOf)
+}
+
+longestWord("hellloooo there")
