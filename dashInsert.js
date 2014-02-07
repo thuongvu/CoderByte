@@ -143,3 +143,24 @@ function start(numbers) {
 }
 
 start(99946)
+
+
+
+// attempt 3 
+function dashInsert(num) {
+	var numStr = num.toString();
+	var newNum = [];
+	for (var i = 0; i < numStr.length;i++) {
+		if ((numStr[i] % 2 !== 0) && (numStr[i + 1] % 2 !== 0)) {
+			newNum.push(numStr[i]);
+			newNum.push("-")
+		} else {
+			newNum.push(numStr[i]);
+		}
+	}
+	return newNum.join("")
+}
+
+dashInsert(99946)
+
+

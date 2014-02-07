@@ -52,3 +52,41 @@ return result;
 // 1. When the input was "1:00pm-11:00am" your output was incorrect.
 // 2. When the input was "2:08pm-2:00am" your output was incorrect.
 // 3. When the input was "3:00pm-4:45am" your output was incorrect.
+
+
+
+
+// attempt 2
+function countingMinutes(str) {
+	var time = str.match(/(\d\d?):(\d\d)(\w\w)-(\d\d?):(\d\d)(\w\w)/);
+	var hourA = parseInt(time[1])
+	var minA = parseInt(time[2])
+	var apA = parseInt(time[3])
+	var hourB = parseInt(time[4])
+	var minB = parseInt(time[5])
+	var apB = parseInt(time[6])
+	var firstTime;
+	var secondTime;
+
+	if (apA === 'am') {
+		firstTime = (hourA * 60) + minA;
+	} else {
+		firstTime = ((hourA + 12) * 60) + minA;
+	}
+
+	if (apB === 'am') {
+		secondTime = (hourB * 60) + minB;
+	} else {
+		secondTime = ((hourB + 12) * 60) + minB;
+	}
+
+	if (secondTime > firstTime) {
+		var diff = firstTime - secondTime;
+	} else {
+		var diff = (firstTime + 1440) - secondTime;
+	}
+
+	return diff;
+
+}
+countingMinutes("1:23am-1:08am")
