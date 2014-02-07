@@ -63,3 +63,41 @@ function findNumInArray(array, number, numMinusLength) {
 }
 
 findNumInArray([7, 7], 1, 2)
+
+
+
+
+// attempt 2
+
+function secondGreatLow(arr) {
+	arr.sort(function(a,b) {
+		return a - b;
+	})
+	return arr[1] + " " + arr[arr.length - 2];
+}
+
+secondGreatLow([10, 90, 9, 1000003]);
+
+
+// functional 
+
+function sortArr(arr) {
+	arr.sort(function(a,b) {
+		return a - b;
+	});
+	return arr;
+}
+
+function getLowHigh(arr) {
+	return arr[1] + " " + arr[arr.length - 2];
+}
+
+function secondGreatLow(arr) {
+	return getLowHigh(sortArr(arr));
+}
+
+secondGreatLow([10, 90, 9, 1000003]);
+
+
+
+
