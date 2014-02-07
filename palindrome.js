@@ -81,12 +81,74 @@ start("never odd or even")
 
 
 
+// attempt 3
 
 
 
+function palindrome(str) {
+
+	var strArr = [];
+	var strRevArr = [];
+	for (var i = 0; i < str.length; i++) {
+	
+		if (str[i].match(/\w/)) {
+			strArr.push(str[i]);
+		}
+	}
+
+	for (var i = str.length - 1; i >= 0; i--) {
+		if (str[i].match(/\w/)) {
+			strRevArr.push(str[i])
+		}
+		
+	}
+	if (strArr.join("") === strRevArr.join("")) {
+		console.log(strArr.join(""))
+		console.log(strRevArr.join(""))
+		return true;
+	} else {
+		return false;
+	}
+}
+
+palindrome("never odd or even")
 
 
 
+// functional 
+// forEach
+// if str/letter matches regex
+// compare
+// reverse
+
+// function forEach(arr, func) {
+// 	for (var i = 0; i < arr.length; i++) {
+// 		func(arr[i])
+// 	}
+// }
+
+function checkIfLetter(str) {
+	return str.match(/\w/g)
+}
+
+function reverse(str) {
+	var revStr = [];
+	for (var i = str.length; i >= 0; i--) {
+		revStr.push(str[i]);
+	}
+	return revStr;
+}
+
+function palindrome(str) {
+	var strArr = checkIfLetter(str);
+	if (strArr.join("") ===  reverse(strArr).join("")) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+palindrome("never odd or even")
 
 
 
