@@ -72,4 +72,62 @@ swapCase("Hello! World123")
 
 
 
+// 3rd attempt 
+
+function swapCase(str) {
+	var newStr = [];
+
+	for (var i = 0; i < str.length; i++) {
+		if (str[i].match(/[a-z]/)) {
+			newStr.push(str[i].toUpperCase());
+		} else if (str[i].match(/[A-Z]/)) {
+			newStr.push(str[i].toLowerCase());
+		} else {
+			newStr.push(str[i]);
+		}
+	}
+	return newStr.join("")
+}
+
+
+swapCase("Hello! World123")
+
+
+// functional
+
+function forEach(array, func) {
+	for (var i = 0; i < array.length; i++) {
+		func(array[i]);
+	}
+}
+
+function map(array, mapFunc) {
+	var newStr = [];
+	forEach(array, function(ele) {
+		newStr.push(mapFunc(ele))
+	})
+	return newStr;
+}
+
+function matchStr(str) {
+	if (str.match(/[a-z]/)) {
+		return str.toUpperCase();
+	} else if (str.match(/[A-Z]/)) {
+		return str.toLowerCase();
+	} else {
+		return str;
+	}
+}
+
+
+function swapCase(str) {
+	return map(str, matchStr).join("")
+}
+swapCase("Hello! World123")
+
+
+
+
+
+
 
