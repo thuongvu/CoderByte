@@ -30,3 +30,5 @@ function MultipleBrackets(str) {
 }
 
 MultipleBrackets("hello");
+
+// 1. When the input was "the co[l][]or re(d))()(()" your output was incorrect.
