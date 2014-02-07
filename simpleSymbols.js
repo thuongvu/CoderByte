@@ -48,3 +48,58 @@ function start(array) {
 }
 
 start("+d+=3=+s+")
+
+
+// attempt 2
+
+function simpleSymbols(str) {
+	for (var i = 0; i < str.length; i++) {
+		if (str[i].match(/[a-zA-Z]/)) {
+			if (!((str[i-1] === '+') && (str[i+1] === "+"))) {
+				return false;
+			}
+		}
+	}
+	return true;
+}
+
+simpleSymbols("+d+=3=+s+")
+
+
+// functional
+
+function forEach(array, func) {
+	for (var i = 0; i < array.length; i++) {
+		func(array[i], array[i - 1], array[i + 1]);
+	}
+}
+
+function map(mapFunc, array) {
+	var trueOrFalse = true;
+	forEach(array, function(ele, previous, after) {
+		if (mapFunc(ele, previous, after) === false) {
+			trueOrFalse = false;
+		}
+	})
+	return trueOrFalse;
+}
+
+function strMatch(ele, previous, after) {
+
+
+	if (ele.match(/[a-zA-Z]/)) {
+		if (!((previous === "+") && (after === "+"))) {
+			return false;
+		}
+	}
+}
+
+function simpleSymbols(str) {
+	return map(strMatch, str);
+}
+
+simpleSymbols("+d+=3=+s+")
+
+
+
+
