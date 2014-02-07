@@ -64,3 +64,55 @@ function PermutationStep(num) {
 // }
 
 start(123)
+
+
+
+
+
+// attempt 2
+
+function permutationStep(num) {
+	var number = num.toString().split("");
+	var permArr = [];
+	var usedNums = [];
+	permute(number)
+	function permute(number) {
+		var ch;
+		for (var i = 0; i < number.length; i++) {
+			ch = number.splice(i, 1)[0];
+			usedNums.push(ch);
+			if (number.length === 0) {
+				permArr.push(usedNums.slice());
+			}
+			permute(number);
+			number.splice(i, 0, ch);
+			usedNums.pop();
+		}
+	}
+	var newArr = [];
+	for (var j = 0; j < permArr.length; j++) {
+		var base = '';
+		for (var k = 0; k < permArr[j].length; k++) {
+			base += permArr[j][k]
+		} 
+		newArr.push(parseInt(base));
+	}
+	
+	newArr.sort(function(a,b) {
+		return a - b;
+	})
+	return newArr[newArr.indexOf(num) + 1]
+
+}
+
+
+permutationStep(123)
+
+1. When the input was 11121 your output was incorrect.
+2. When the input was 111 your output was incorrect.
+3. When the input was 9 your output was incorrect.
+4. When the input was 44444444 your output was incorrect.
+5. When the input was 76666666 your output was incorrect.
+
+
+
