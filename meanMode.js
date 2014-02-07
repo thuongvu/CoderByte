@@ -147,15 +147,116 @@ compareMeanMode([1,1,1])
 
 
 
+// attempt 3
+function meanMode(arr) {
+	var sum = 0;
+	for (var i = 0; i < arr.length; i++) {
+		sum+= arr[i];
+	}
+	var mean = sum / arr.length;
+
+	var numObj = {};
+	var mode;
+	var modeAppears = 0;
+	for (var j = 0; j < arr.length; j++) {
+		var currentNumber = arr[j];
+
+		if (numObj[currentNumber] == null) {
+			numObj[currentNumber] = 0;
+		}
+		numObj[currentNumber]++;
+		if (numObj[currentNumber] > modeAppears) {
+			modeAppears = numObj[currentNumber];
+			mode = currentNumber;
+		}
+	}
+
+	if (mode === mean) {
+		return true;
+	} else {
+		return false;
+	}
+
+}
+
+meanMode([5,5,5,5]);
 
 
 
+// functional
+
+
+function forEach(array, func) {
+	for (var i = 0; i < array.length; i++) {
+		func(array[i]);
+	}
+}
+
+function divide(a,b) {
+	return a / b;
+}
+
+function add(a,b) {
+	return a + b;
+}
+
+function reduce(array, combine, base) {
+	forEach(array, function(ele) {
+		base = combine(ele, base);
+	})
+	return base;
+}
+
+function getMean(array) {
+	return reduce(array, add, 0) / array.length;
+}
+
+function map(array, mapFunc) {
+	var freq = {};
+	forEach(array, function(ele) {
+		mapFunc(ele, freq);
+	})
+	return freq;
+}
+
+function getModeObj(ele, freq) {
+	if (freq[ele] == null) {
+		freq[ele] = 0;
+	}
+	freq[ele]++;
+}
+
+function compareModes(freq) {
+	var frequency = 0;
+	var mode;
+	for (number in freq) {
+		if (freq[number] > frequency) {
+			frequency = freq[number];
+			mode = number;
+		}
+	}
+	return parseInt(mode);
+}
+
+
+function meanMode(arr) {
+	var mode = compareModes(map(arr, getModeObj));
+	var mean = getMean(arr);
+	if (mean === mode) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+meanMode([5,5,5,5])
+// compareModes(map([0,1,2,3,4,5,2], getModeObj))
 
 
 
+// function getMode(array) {
 
-
-
+// }
 
 
 
