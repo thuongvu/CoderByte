@@ -48,3 +48,47 @@ function convertTime(num) {
 
 convertTime(90)
 
+
+// attempt 3
+
+function timeConvert(num) {
+	var hours;
+	var mins;
+	if (num < 60) {
+		hours = 0;
+		mins = num;
+	} else {
+		hours = Math.floor(num / 60);
+		mins = num % 60
+	}
+	return hours + ":" + mins;
+}
+
+timeConvert(90);
+
+
+// FUNCTIONAL
+
+
+function timeToString(time) {
+	return time.hours + ":" + time.mins;
+}
+
+function numToHoursMins(num) {
+	var time = {};
+	if (num < 60) {
+		time.hours = 0;
+		time.mins = num;
+	} else {
+		time.hours = Math.floor(num / 60);
+		time.mins = num % 60;
+	}
+	return time;
+}
+
+function timeConvert(num) {
+	return timeToString(numToHoursMins(num));
+}
+
+
+timeConvert(90);
