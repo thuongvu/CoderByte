@@ -131,7 +131,38 @@ start("hello appple pie") // returns "appple"
 
 
 
+// attempt 3
+function LetterCount(str) {
+	words = str.split(" ");
+	var wordObj = {};
+	var freq = 0;
+	var highestWord;
+	for (var i = 0; i < words.length; i++) {
+		var word = words[i].split("");
+		
+		for (var j = 0; j < word.length; j++) {
+			if (word[j] === word[j - 1]) {
+				if (wordObj[word] == null) { // make word obj on wordObj if doesnt exist
+					wordObj[word] = {};
+				}
+				var letter = word[j];
+				if (wordObj[word][letter] == null) { // make letter on wordObj.word if it doesnt exist
+					wordObj[word][letter] = 0;
+				}
+				wordObj[word][letter]++;
 
+				if (wordObj[word][letter] > freq) {
+					freq = wordObj[word][letter];
+					highestWord = word.join("")
+				}
+
+			}
+		}
+	}
+	return highestWord;
+}
+
+LetterCount('Hello aple pie');
 
 
 

@@ -99,8 +99,60 @@ function start(str, push) {
 
 start("hello*3", 1)
 
+// ----------------------------------
+// attempt 3
+function LetterChanges(str, push) {
+	var alphabet = 'abcdefghijklmnopqrstuvwxyzaABCDEFGHIJKLMNOPQRSTUVWXYZA';
+	var newStr = [];
+	for (var i = 0; i < str.length; i++) {
+		if (alphabet.indexOf(str[i]) !== -1) {
+			var letterNum = alphabet.indexOf(str[i]);
+			newStr.push(alphabet[letterNum + push]);
+		} else {
+			newStr.push(str[i]);
+		}
+	}
+	var vowels = 'aeiou';
+	for (var j = 0; j < newStr.length; j++) {
+		if (vowels.indexOf(newStr[j]) !== -1) {
+			var upperLetter = newStr[j].toUpperCase();
+			newStr.splice(j, 1, upperLetter) 
+		}
+	} 
+	return newStr.join("");
+}
 
+LetterChanges("hello*3", 1);
 
+// functional
 
+function forEach(aray, func) {
+	for (var i = 0; i < array.length; i++) {
+		func(array[i]);
+	}
+}
 
+function map(array, mapFunc, push) {
+	var newArr = [];
+	forEach(array, function(ele) {
+		newArr.push(mapFunc(ele, push));
+	})
+	return newArr;
+}
+
+function alphabetPush(ele, push) {
+	var alphabet = 'abcdefghijklmnopqrstuvwxyzaABCDEFGHIJKLMNOPQRSTUVWXYZA';
+	if (alphabet.indexOf(ele) !== -1) {
+		var letterNum = alphabet.indexOf(ele);
+		return alphabet[letterNum + push];
+	} else {
+		return ele;
+	}
+}
+
+function LetterChanges(str, push) {
+	return map(str, alphabetPush, push)
+}
+
+LetterChanges("hello*3", 1);
 
