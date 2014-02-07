@@ -127,5 +127,6 @@ function checkBoth(array) {
 	}
 	
 }
-checkBoth([5,10,20,40,80])
+// checkBoth([5,10,20,40,80])
+checkBoth([2,6,18,54])
 

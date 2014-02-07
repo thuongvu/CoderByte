@@ -55,4 +55,49 @@ function parseStringAndAdd(str) {
 parseStringAndAdd("75Number9")
 
 
+// 3rd attempt
+function numberAddition(str) {
+	var numbers = str.match(/\d+/g);
+	var sum = 0;
+	for (var i = 0; i < numbers.length; i++) {
+		sum = parseInt(numbers[i]) + parseInt(sum);
+	}
+	return sum;
+}
+
+
+numberAddition("75Number9")
+
+
+// functional x 2
+
+function forEach(array, func) {
+	for (var i = 0; i < array.length; i++) {
+		func(array[i]);
+	}
+}
+
+function reduce(array, combine, base) {
+	forEach(array, function(ele) {
+		base = combine(ele, base);
+	})
+	return base;
+}
+
+function add(a,b) {
+	return parseInt(a) + parseInt(b);
+}
+
+function numToArray(str) {
+	return str.match(/\d+/g)
+}
+
+function numberAddition(str) {
+	return reduce(numToArray(str), add, 0)
+}
+
+numberAddition("75Number9")
+
+
+
 
