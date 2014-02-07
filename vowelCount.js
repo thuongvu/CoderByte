@@ -49,3 +49,50 @@ function countVowels(str) {
 }
 
 countVowels("hello")
+
+
+// attempt 3
+function vowelCount(str) {
+	var vowels = 'aeioAEIOU';
+	var counter = 0;
+	for (var i = 0; i < str.length; i++) {
+		if (vowels.indexOf(str[i]) !== -1) {
+			counter++
+		}
+	}
+	return counter;
+}
+
+vowelCount("hello")
+
+
+// functional
+
+function forEach(array, func) {
+	for (var i = 0; i < array.length; i++) {
+		func(array[i]);
+	}
+}
+
+function count(array, filterFunc) {
+	var counter = 0;
+	forEach(array, function(ele) {
+		counter += filterFunc(ele);
+	})
+	return counter;
+}
+
+function checkIfVowel(str) {
+	var vowels = "aeiouAEIOU"
+	if (vowels.indexOf(str) !== -1) {
+		return 1;
+	} else {
+		return 0;
+	}
+}
+
+function countFunction(str) {
+	return count(str, checkIfVowel);
+}
+
+vowelCount("hello")
