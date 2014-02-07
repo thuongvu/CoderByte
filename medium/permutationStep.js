@@ -101,12 +101,17 @@ function permutationStep(num) {
 	newArr.sort(function(a,b) {
 		return a - b;
 	})
-	return newArr[newArr.indexOf(num) + 1]
+	if (newArr[newArr.indexOf(num) + 1] === num) {
+		return -1
+	} else {
+		return newArr[newArr.indexOf(num) + 1]
+	}
+	
 
 }
 
 
-permutationStep(123)
+permutationStep(44444444)
 
 1. When the input was 11121 your output was incorrect.
 2. When the input was 111 your output was incorrect.
