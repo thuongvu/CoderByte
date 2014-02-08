@@ -130,3 +130,71 @@ function checkBoth(array) {
 // checkBoth([5,10,20,40,80])
 checkBoth([2,6,18,54])
 
+
+
+
+// attempt ??
+function arithGeo(arr) {
+var arith = true;
+var geo = true;
+
+var arithDiff = arr[1] - arr[0];
+var geoQuo = arr[1] / arr[0];
+
+	for (var i = 1; i < arr.length; i++) {
+		var current = arr[i];
+		var previous = arr[i - 1];
+		if ((current - previous) !== arithDiff) {
+			arith = false;
+		}
+		if ((current / previous) !== geoQuo) {
+			geo = false;
+		}
+	}
+
+	if (geo === true) {
+		return "Geometric"
+	}  else if (arith === true) {
+		return "Arithmetic" 
+	} else if ((geo !== true) & (arith !== true)) {
+		return -1
+	}
+
+}
+arithGeo([2, 6, 18])
+
+
+
+// functional
+
+function forEach(array, func) {
+	for (var i = 1; i < array.length; i++) {
+		func(array[i], array[i-1])
+	}
+}
+
+function subtract(a,b) {
+	return a - b;
+}
+
+function divide(a,b) {
+	return a / b;
+}
+
+function map(array, operator) {
+	var newNumArr = [];
+	forEach(array, function(ele) {
+		newNumArr.push(operator(ele));
+	})	
+	return newNumArr;
+}
+
+function check(array, operator, geoArith) {
+	var diff = array[1] - array[0];
+	var quo = array[1] / array[0];
+
+	forEach(array, function(ele) {
+		
+	})
+}
+
